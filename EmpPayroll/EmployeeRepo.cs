@@ -19,9 +19,10 @@ namespace EmpPayroll
             {
                 using (this.connection)
                 {
-                    string sql = "INSERT INTO EmployeeDetail(EmployeeName ,PhoneNumber, Address, Department,Gender) values " +
+                   // string sql = "INSERT INTO EmployeeDetail(EmployeeName ,PhoneNumber, Address, Department,Gender) values " +
                         "(@EmployeeName ,@PhoneNumber, @Address, @Department,@Gender)";
-                    SqlCommand command = new SqlCommand(sql, this.connection);
+                    
+                    SqlCommand command = new SqlCommand("spAddEmployee", this.connection);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@EmployeeName", Model.EmployeeName);
                     command.Parameters.AddWithValue("@PhoneNumber", Model.PhoneNumber);
